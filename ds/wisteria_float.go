@@ -14,12 +14,12 @@ func (wf *WisteriaFloat) ToBytes() []byte {
 	return []byte(fmt.Sprintf("%f", wf.data))
 }
 
-func NewWisteriaFloatFromBytes(bytes []byte) float64 {
+func NewWisteriaFloatFromBytes(bytes []byte) *WisteriaFloat {
 	parseFloat, err := strconv.ParseFloat(string(bytes), 64)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	return parseFloat
+	return NewWisteriaFloat(parseFloat)
 }
 
 // convert golang data type

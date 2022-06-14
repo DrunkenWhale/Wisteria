@@ -13,12 +13,12 @@ func (wi *WisteriaInt) ToBytes() []byte {
 	return []byte(strconv.FormatInt(wi.data, 10))
 }
 
-func NewWisteriaIntFromBytes(bytes []byte) int64 {
+func NewWisteriaIntFromBytes(bytes []byte) *WisteriaInt {
 	parseInt, err := strconv.ParseInt(string(bytes), 10, 64)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	return parseInt
+	return NewWisteriaInt(parseInt)
 }
 
 // convert golang data type

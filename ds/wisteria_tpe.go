@@ -18,7 +18,7 @@ const (
 	setFloatIdent   byte = 77
 	setStringIdent  byte = 78
 	mapIdent        byte = 79
-	jsonIdent       byte = 80
+	//jsonIdent       byte = 80
 )
 
 // Wisteria

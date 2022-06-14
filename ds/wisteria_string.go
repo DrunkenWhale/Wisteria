@@ -8,8 +8,8 @@ func (ws *WisteriaString) ToBytes() []byte {
 	return []byte(ws.data)
 }
 
-func NewWisteriaStringFromBytes(bytes []byte) string {
-	return string(bytes)
+func NewWisteriaStringFromBytes(bytes []byte) *WisteriaString {
+	return NewWisteriaString(string(bytes))
 }
 
 // convert golang data type
