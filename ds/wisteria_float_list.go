@@ -40,7 +40,7 @@ func NewWisteriaFloatListFromBytes(bytes []byte) []float64 {
 
 // convert golang data type
 
-func NewWisteriaFloatFloatList(arr []float64) *WisteriaFloatList {
+func NewWisteriaFloatList(arr []float64) *WisteriaFloatList {
 	res := make([]*WisteriaFloat, len(arr))
 	for i := 0; i < len(arr); i++ {
 		res[i] = NewWisteriaFloat(arr[i])

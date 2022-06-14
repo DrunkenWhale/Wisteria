@@ -42,7 +42,7 @@ func NewWisteriaIntListFromBytes(bytes []byte) []int64 {
 
 // convert golang data type
 
-func NewWisteriaIntFloatList(arr []int64) *WisteriaIntList {
+func NewWisteriaIntList(arr []int64) *WisteriaIntList {
 	res := make([]*WisteriaInt, len(arr))
 	for i := 0; i < len(arr); i++ {
 		res[i] = NewWisteriaInt(arr[i])

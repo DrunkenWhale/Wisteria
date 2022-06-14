@@ -14,9 +14,11 @@ const (
 	listIntIdent    byte = 73
 	listFloatIdent  byte = 74
 	listStringIdent byte = 75
-	setIdent        byte = 76
-	mapIdent        byte = 77
-	jsonIdent       byte = 78
+	setIntIdent     byte = 76
+	setFloatIdent   byte = 77
+	setStringIdent  byte = 78
+	mapIdent        byte = 79
+	jsonIdent       byte = 80
 )
 
 // Wisteria
