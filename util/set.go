@@ -1,4 +1,4 @@
-package ds
+package util
 
 // Empty Struct
 type Empty struct {

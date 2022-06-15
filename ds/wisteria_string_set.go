@@ -1,6 +1,7 @@
 package ds
 
 import (
+	"Gloxinia/util"
 	bytes2 "bytes"
 )
 
@@ -11,7 +12,7 @@ import (
 // WisteriaStringSet
 // ***************************
 type WisteriaStringSet struct {
-	data Set[string]
+	data util.Set[string]
 }
 
 func (wis *WisteriaStringSet) ToBytes() []byte {
@@ -24,23 +25,23 @@ func (wis *WisteriaStringSet) ToBytes() []byte {
 	return res
 }
 
-func NewStringSetFromBytes(bytes []byte) *Set[string] {
+func NewStringSetFromBytes(bytes []byte) *util.Set[string] {
 	res := make([]string, 0)
 	bytesArray := bytes2.Split(bytes, []byte{setElementSep})
 	for i := 0; i < len(bytesArray); i++ {
 		res = append(res, string(bytesArray[i]))
 	}
-	return NewSetWithParam[string](res...)
+	return util.NewSetWithParam[string](res...)
 }
 
 // convert golang data type
 
-func NewWisteriaStringSet(set Set[string]) *WisteriaStringSet {
+func NewWisteriaStringSet(set util.Set[string]) *WisteriaStringSet {
 	return &WisteriaStringSet{
 		data: set,
 	}
 }
 
-func (wis *WisteriaStringSet) Get() Set[string] {
+func (wis *WisteriaStringSet) Get() util.Set[string] {
 	return wis.data
 }
