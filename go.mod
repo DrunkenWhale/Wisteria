@@ -1,4 +1,4 @@
-module Gloxinia
+module Wisteria
 
 go 1.18
 
