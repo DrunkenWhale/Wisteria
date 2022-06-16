@@ -18,6 +18,7 @@ func ListTransformToBytes(arr []any) []byte {
 	res := make([]byte, 0)
 	for i := 0; i < len(arr); i++ {
 		res = append(res, judgeElementTypeAndToBytes(arr[i])...)
+		res = append(res, listElementSep)
 	}
 	return res
 }
@@ -55,7 +56,7 @@ func judgeElementTypeAndFromBytes(x []byte) any {
 func BytesTransformToList(bytes []byte) []any {
 	bytesArray := bytes2.Split(bytes, listElementSepByteArray)
 	res := make([]any, 0)
-	for i := 0; i < len(bytesArray); i += 1 {
+	for i := 0; i < len(bytesArray)-1; i += 1 {
 		res = append(res, judgeElementTypeAndFromBytes(bytesArray[i]))
 	}
 	return res

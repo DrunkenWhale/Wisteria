@@ -20,7 +20,7 @@ func MapTransformToBytes(m map[string]string) []byte {
 func BytesTransformToMap(bytes []byte) map[string]string {
 	bytesArray := bytes2.Split(bytes, mapElementSepByteArray)
 	m := make(map[string]string, 0)
-	for i := 0; i < len(bytesArray); i += 2 {
+	for i := 0; i < len(bytesArray)-1; i += 2 {
 		m[string(bytesArray[i])] = string(bytesArray[i+1])
 	}
 	return m

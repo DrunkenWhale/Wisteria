@@ -1,7 +1,7 @@
 package test
 
 import (
-	"Gloxinia/transform"
+	"Wisteria/transform"
 	"bytes"
 	"testing"
 )
