@@ -23,6 +23,10 @@ func ListTransformToBytes(arr []any) []byte {
 	return res
 }
 
+func ListAppendInBytes(listBytes []byte, element any) []byte {
+	return append(append(listBytes, judgeElementTypeAndToBytes(element)...), listElementSep)
+}
+
 func judgeElementTypeAndToBytes(x any) []byte {
 	var ok bool
 	_, ok = x.(int64)

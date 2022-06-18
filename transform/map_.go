@@ -17,6 +17,10 @@ func MapTransformToBytes(m map[string]string) []byte {
 	return res
 }
 
+func MapAppendInBytes(mapBytes []byte, mapKey string, value string) []byte {
+	return append(mapBytes, []byte(mapKey+string(rune(mapElementSep))+value+string(rune(mapElementSep)))...)
+}
+
 func BytesTransformToMap(bytes []byte) map[string]string {
 	bytesArray := bytes2.Split(bytes, mapElementSepByteArray)
 	m := make(map[string]string, 0)
