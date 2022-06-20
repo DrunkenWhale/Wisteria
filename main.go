@@ -1,13 +1,11 @@
 package main
 
 import (
-	"github.com/Pigeon377/Dandelion/lsm"
+	"Wisteria/core"
 )
 
 const sep = 2
 
 func main() {
-	lsm.NewLSM().Put(114514, []byte("s"))
-	lsm.NewLSM().ClearMemory()
-	lsm.NewLSM().ClearFilter()
+	core.StartREPL()
 }

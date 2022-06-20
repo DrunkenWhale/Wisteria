@@ -60,11 +60,19 @@ func (r *repl) analyze(sentence string) {
 
 	str := strings.TrimSpace(sentence)
 	strArray := strings.SplitN(str, " ", 3)
-	op, keyString, after := strArray[0], strArray[1], strArray[2]
+	var after = ""
+	var keyString = ""
+	op := strArray[0]
+	if len(strArray) > 1 {
+		keyString = strArray[1]
+	}
+	if len(strArray) > 2 {
+		after = strArray[2]
+	}
 	key, err := strconv.ParseInt(keyString, 10, 64)
 	re := regexp.MustCompile(`[^\s"]+|"([^"]*)"`)
 	arr := re.FindAllString(after, -1)
-	if err != nil {
+	if err != nil && op != "flush" {
 		log.Println(err)
 	}
 	switch op {
