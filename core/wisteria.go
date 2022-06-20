@@ -47,11 +47,11 @@ func (w *Wisteria) Query(key int) (byte, any, error) {
 	}
 }
 
-func (w *Wisteria) PutSingleFloat(key int, intNumber int64) error {
+func (w *Wisteria) PutSingleInt(key int, intNumber int64) error {
 	return w.l.Put(key, append([]byte{intIdent}, transform.IntTransformToBytes(intNumber)...))
 }
 
-func (w *Wisteria) PutSingleInt(key int, floatNumber float64) error {
+func (w *Wisteria) PutSingleFloat(key int, floatNumber float64) error {
 	return w.l.Put(key, append([]byte{floatIdent}, transform.FloatTransformToBytes(floatNumber)...))
 }
 
@@ -81,4 +81,11 @@ func (w *Wisteria) AppendElementToMap(key int, mapKey string, value string) erro
 		return errors.New(fmt.Sprintf("Map Unexist In Key : [%v]", key))
 	}
 	return w.l.Put(key, transform.MapAppendInBytes(bytes, mapKey, value))
+}
+
+func (w *Wisteria) Delete(key int) error {
+	return w.l.Delete(key)
+}
+func (w *Wisteria) Flush() error {
+	return w.l.Flush()
 }
