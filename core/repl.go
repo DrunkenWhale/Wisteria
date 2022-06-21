@@ -134,15 +134,17 @@ func (r *repl) putOperation(key int64, arr []string) error {
 			if err != nil {
 				log.Println(err)
 			}
+			return nil
 		}
 		if arr[0] == "MAP" {
 			err := r.wisteria.PutNewMap(int(key), map[string]string{})
 			if err != nil {
 				log.Println(err)
 			}
+			return nil
 		}
-		if len(arr[0]) >= 2 && arr[0][0] == '"' && arr[0][len(arr[0])] == '"' {
-			string_ := arr[0][1 : len(arr[0])-2]
+		if len(arr[0]) >= 2 && arr[0][0] == '"' && arr[0][len(arr[0])-1] == '"' {
+			string_ := arr[0][1 : len(arr[0])-1]
 			return r.wisteria.PutSingleString(int(key), string_)
 		}
 		float_, err := strconv.ParseFloat(arr[0], 64)
@@ -171,8 +173,8 @@ func (r *repl) deleteOperation(key int64) error {
 
 func (r *repl) appendOperation(key int64, arr []string) error {
 	if len(arr) == 1 {
-		if len(arr[0]) >= 2 && arr[0][0] == '"' && arr[0][len(arr[0])] == '"' {
-			string_ := arr[0][1 : len(arr[0])-2]
+		if len(arr[0]) >= 2 && arr[0][0] == '"' && arr[0][len(arr[0])-1] == '"' {
+			string_ := arr[0][1 : len(arr[0])-1]
 			return r.wisteria.AppendElementToList(int(key), string_)
 		}
 		float_, err := strconv.ParseFloat(arr[0], 64)
